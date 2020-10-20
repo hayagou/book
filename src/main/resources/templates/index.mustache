@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>스프링부트 웹서비스</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<!-- /.header -->
+{{>layout/header}}
+    <h1> 스프링 부트</h1>
+
+<div class="col-md-12">
+    <div calss="row">
+        <div class="col-md-6">
+            <a href="/save" role="button" class="btn btn-primary">글 등록</a>
+        </div>
+    </div>
+</div>
+<br>
+<!--목록 출력 영역-->
+<table class="table table-horizontal table-bordered">
+    <thead class="thead-strong">
+    <tr>
+        <td>게시글번호</td>
+        <td>제목</td>
+        <td>작성자</td>
+        <td>최종수정일</td>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    {{#posts}}
+    <tr>
+        <td>{{id}}</td>
+        <td><a href="/update/{{id}}">{{title}}</a></td>
+        <td>{{author}}</td>
+        <td>{{modifiedDate}}</td>
+    </tr>
+    {{/posts}}
+    </tbody>
+</table>
+{{>layout/footer}}
+
+</body>
+</html>
